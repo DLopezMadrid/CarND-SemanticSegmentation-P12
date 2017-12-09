@@ -46,7 +46,7 @@ def load_vgg(sess, vgg_path):
 
 
 if (tests_run == True):
-	tests.test_load_vgg(load_vgg, tf)
+    tests.test_load_vgg(load_vgg, tf)
 
 
 def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
@@ -65,22 +65,22 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     conv_1x1_layer3 = tf.layers.conv2d(vgg_layer3_out, num_classes, kernel_size=(1, 1), strides=(1, 1), padding='same', kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
 
-	output7 = tf.layers.conv2d_transpose(conv_1x1_layer7, num_classes, 4, (2, 2), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+    output7 = tf.layers.conv2d_transpose(conv_1x1_layer7, num_classes, 4, (2, 2), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
-	output4_skip = tf.add(output7, conv_1x1_layer4)
+    output4_skip = tf.add(output7, conv_1x1_layer4)
 
-	output4 = tf.layers.conv2d_transpose(output4_skip, num_classes, 4, (2, 2), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+    output4 = tf.layers.conv2d_transpose(output4_skip, num_classes, 4, (2, 2), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
-	output3_skip = tf.add(output4, conv_1x1_layer3)
+    output3_skip = tf.add(output4, conv_1x1_layer3)
 
-	output = tf.layers.conv2d_transpose(output3_skip, num_classes, 16, (8, 8), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
+    output = tf.layers.conv2d_transpose(output3_skip, num_classes, 16, (8, 8), padding='same', kernel_initializer=tf.random_normal_initializer(stddev=0.01), kernel_regularizer=tf.contrib.layers.l2_regularizer(1e-3))
 
     return output
 
 
 
 if (tests_run == True):
-	tests.test_layers(layers)
+    tests.test_layers(layers)
 
 
 def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
@@ -106,7 +106,7 @@ def optimize(nn_last_layer, correct_label, learning_rate, num_classes):
     return logits, train_op, entropy_loss
 
 if (tests_run == True):    
-	tests.test_optimize(optimize)
+    tests.test_optimize(optimize)
 
 
 def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
@@ -129,7 +129,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
 
     for i in range(epochs):
         for batch, (image, label) in enumerate(get_batches_fn(batch_size)):
-    		ph, loss = sess.run([train_op, cross_entropy_loss],
+            ph, loss = sess.run([train_op, cross_entropy_loss],
                                feed_dict={input_image: image,
                                 correct_label: label,
                                 keep_prob: 0.5, learning_rate: 0.0010})
@@ -139,7 +139,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     pass
 
 if (tests_run == True):    
-	tests.test_train_nn(train_nn)
+    tests.test_train_nn(train_nn)
 
 
 def run():
