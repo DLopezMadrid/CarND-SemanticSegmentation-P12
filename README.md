@@ -2,6 +2,21 @@
 ### Introduction
 In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
 
+Some example results:
+
+![alt text](imgs/um_000017.png "Example 1")
+
+![alt text](imgs/um_000024.png "Example 1")
+
+![alt text](imgs/uu_000026.png "Example 1")
+
+![alt text](imgs/uu_000066.png "Example 1")
+
+
+---
+
+
+
 ### Setup
 ##### Frameworks and Packages
 Make sure you have the following is installed:
@@ -31,6 +46,6 @@ python main.py
  - `main.py`
  - `project_tests.py`
  - Newest inference images from `runs` folder  (**all images from the most recent run**)
- 
+
  ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
