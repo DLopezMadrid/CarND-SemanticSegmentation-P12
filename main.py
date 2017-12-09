@@ -136,7 +136,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                                 correct_label: label,
                                 keep_prob: 0.5, learning_rate: 0.0010})
 
-            print('EPOCH:{:5} | BATCH: {:5} | LOSS: {:10.5}'.format(epoch, batch, loss))
+            print('EPOCH:{:5} | BATCH: {:5} | LOSS: {:10.5}'.format(i, batch, loss))
 
     pass
 
