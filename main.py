@@ -177,7 +177,7 @@ def run():
 
         # TODO: Build NN using load_vgg, layers, and optimize function
 
-        input_tensor, keep_prob, layer3_output, layer4_output, layer7_output = load_vgg(sess, vgg_path)
+        input_image, keep_prob, layer3_output, layer4_output, layer7_output = load_vgg(sess, vgg_path)
 
         output_layer = layers(layer3_output, layer4_output, layer7_output, num_classes)
 
